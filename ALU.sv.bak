@@ -1,0 +1,23 @@
+module ALU(
+	input wire [7:0] A,B,
+	input wire [3:0] ControlSig,
+	output wire zero,
+	output wire [7:0] S
+	);
+	
+	wire [7:0] int_LU,int_AU;
+	
+	LogicUnit LU_inst(
+		.A(A),
+		.B(B),
+		.sel(ControlSig[0]),
+		.O(int_LU));
+		
+	ArthmeticUnit AU_inst(
+		.A(A),
+		.B(B),
+		.sel(ControlSig[2]),
+		.O(int_AU));
+	
+	SetLessThanUnit SLT_inst(
+	)

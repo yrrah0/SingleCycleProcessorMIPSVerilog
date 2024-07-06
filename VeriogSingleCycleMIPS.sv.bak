@@ -1,0 +1,2 @@
+module registerNbit#(
+	parameter integer n = 8;

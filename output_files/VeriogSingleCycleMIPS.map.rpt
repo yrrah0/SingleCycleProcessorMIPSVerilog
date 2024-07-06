@@ -1,0 +1,1667 @@
+Analysis & Synthesis report for VeriogSingleCycleMIPS
+Sat Jul 06 03:53:02 2024
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for ROM1Port:ROMUnit|altsyncram:altsyncram_component|altsyncram_4ia1:auto_generated
+ 14. Source assignments for RAM1Port:RAMUnit|altsyncram:altsyncram_component|altsyncram_81h1:auto_generated
+ 15. Parameter Settings for User Entity Instance: registerNbit:PCReg
+ 16. Parameter Settings for User Entity Instance: ROM1Port:ROMUnit|altsyncram:altsyncram_component
+ 17. Parameter Settings for User Entity Instance: PCAdd4:Add4Unit|fullAdderNbit:adder_inst
+ 18. Parameter Settings for User Entity Instance: mux2to1Nbit:muxWriteReg
+ 19. Parameter Settings for User Entity Instance: mux2to1Nbit:muxWriteReg|and1toN:and1_inst
+ 20. Parameter Settings for User Entity Instance: mux2to1Nbit:muxWriteReg|and1toN:and2_inst
+ 21. Parameter Settings for User Entity Instance: registerFile:RegUnit|registerNbit:regFile[0].reg_inst
+ 22. Parameter Settings for User Entity Instance: registerFile:RegUnit|registerNbit:regFile[1].reg_inst
+ 23. Parameter Settings for User Entity Instance: registerFile:RegUnit|registerNbit:regFile[2].reg_inst
+ 24. Parameter Settings for User Entity Instance: registerFile:RegUnit|registerNbit:regFile[3].reg_inst
+ 25. Parameter Settings for User Entity Instance: registerFile:RegUnit|registerNbit:regFile[4].reg_inst
+ 26. Parameter Settings for User Entity Instance: registerFile:RegUnit|registerNbit:regFile[5].reg_inst
+ 27. Parameter Settings for User Entity Instance: registerFile:RegUnit|registerNbit:regFile[6].reg_inst
+ 28. Parameter Settings for User Entity Instance: registerFile:RegUnit|registerNbit:regFile[7].reg_inst
+ 29. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux
+ 30. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and1_inst
+ 31. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and2_inst
+ 32. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and3_inst
+ 33. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and4_inst
+ 34. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and5_inst
+ 35. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and6_inst
+ 36. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and7_inst
+ 37. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and8_inst
+ 38. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux
+ 39. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and1_inst
+ 40. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and2_inst
+ 41. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and3_inst
+ 42. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and4_inst
+ 43. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and5_inst
+ 44. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and6_inst
+ 45. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and7_inst
+ 46. Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and8_inst
+ 47. Parameter Settings for User Entity Instance: mux2to1Nbit:muxALUB
+ 48. Parameter Settings for User Entity Instance: mux2to1Nbit:muxALUB|and1toN:and1_inst
+ 49. Parameter Settings for User Entity Instance: mux2to1Nbit:muxALUB|and1toN:and2_inst
+ 50. Parameter Settings for User Entity Instance: ALU:ALUUnit|LogicUnit:LU_inst|andNtoN:andUnit
+ 51. Parameter Settings for User Entity Instance: ALU:ALUUnit|LogicUnit:LU_inst|orNtoN:orUnit
+ 52. Parameter Settings for User Entity Instance: ALU:ALUUnit|LogicUnit:LU_inst|mux2to1Nbit:muxUnit
+ 53. Parameter Settings for User Entity Instance: ALU:ALUUnit|LogicUnit:LU_inst|mux2to1Nbit:muxUnit|and1toN:and1_inst
+ 54. Parameter Settings for User Entity Instance: ALU:ALUUnit|LogicUnit:LU_inst|mux2to1Nbit:muxUnit|and1toN:and2_inst
+ 55. Parameter Settings for User Entity Instance: ALU:ALUUnit|ArthmeticUnit:AU_inst|complementerNbit:compAU
+ 56. Parameter Settings for User Entity Instance: ALU:ALUUnit|ArthmeticUnit:AU_inst|complementerNbit:compAU|fullAdderNbit:adder_inst
+ 57. Parameter Settings for User Entity Instance: ALU:ALUUnit|ArthmeticUnit:AU_inst|fullAdderNbit:adderAU
+ 58. Parameter Settings for User Entity Instance: ALU:ALUUnit|mux2to1Nbit:muxAULU
+ 59. Parameter Settings for User Entity Instance: ALU:ALUUnit|mux2to1Nbit:muxAULU|and1toN:and1_inst
+ 60. Parameter Settings for User Entity Instance: ALU:ALUUnit|mux2to1Nbit:muxAULU|and1toN:and2_inst
+ 61. Parameter Settings for User Entity Instance: ALU:ALUUnit|mux2to1Nbit:muxFinal
+ 62. Parameter Settings for User Entity Instance: ALU:ALUUnit|mux2to1Nbit:muxFinal|and1toN:and1_inst
+ 63. Parameter Settings for User Entity Instance: ALU:ALUUnit|mux2to1Nbit:muxFinal|and1toN:and2_inst
+ 64. Parameter Settings for User Entity Instance: RAM1Port:RAMUnit|altsyncram:altsyncram_component
+ 65. Parameter Settings for User Entity Instance: mux2to1Nbit:muxMem
+ 66. Parameter Settings for User Entity Instance: mux2to1Nbit:muxMem|and1toN:and1_inst
+ 67. Parameter Settings for User Entity Instance: mux2to1Nbit:muxMem|and1toN:and2_inst
+ 68. Parameter Settings for User Entity Instance: fullAdderNbit:BranchCalc
+ 69. Parameter Settings for User Entity Instance: mux2to1Nbit:BranchMulti
+ 70. Parameter Settings for User Entity Instance: mux2to1Nbit:BranchMulti|and1toN:and1_inst
+ 71. Parameter Settings for User Entity Instance: mux2to1Nbit:BranchMulti|and1toN:and2_inst
+ 72. Parameter Settings for User Entity Instance: mux2to1Nbit:JumpMux
+ 73. Parameter Settings for User Entity Instance: mux2to1Nbit:JumpMux|and1toN:and1_inst
+ 74. Parameter Settings for User Entity Instance: mux2to1Nbit:JumpMux|and1toN:and2_inst
+ 75. Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux
+ 76. Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux|and1toN:and1_inst
+ 77. Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux|and1toN:and2_inst
+ 78. Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux|and1toN:and3_inst
+ 79. Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux|and1toN:and4_inst
+ 80. Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux|and1toN:and5_inst
+ 81. Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux|and1toN:and6_inst
+ 82. Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux|and1toN:and7_inst
+ 83. Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux|and1toN:and8_inst
+ 84. altsyncram Parameter Settings by Entity Instance
+ 85. Port Connectivity Checks: "fullAdderNbit:BranchCalc"
+ 86. Port Connectivity Checks: "ALU:ALUUnit|ArthmeticUnit:AU_inst|fullAdderNbit:adderAU"
+ 87. Port Connectivity Checks: "ALU:ALUUnit|ArthmeticUnit:AU_inst|complementerNbit:compAU|fullAdderNbit:adder_inst"
+ 88. Port Connectivity Checks: "ALU:ALUUnit|ArthmeticUnit:AU_inst"
+ 89. Port Connectivity Checks: "registerFile:RegUnit"
+ 90. Port Connectivity Checks: "mux2to1Nbit:muxWriteReg"
+ 91. Port Connectivity Checks: "PCAdd4:Add4Unit|fullAdderNbit:adder_inst"
+ 92. Port Connectivity Checks: "ROM1Port:ROMUnit"
+ 93. Port Connectivity Checks: "registerNbit:PCReg"
+ 94. Elapsed Time Per Partition
+ 95. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Jul 06 03:53:02 2024           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; VeriogSingleCycleMIPS                           ;
+; Top-level Entity Name              ; ProcessorMIPS                                   ;
+; Family                             ; Cyclone IV E                                    ;
+; Total logic elements               ; 171                                             ;
+;     Total combinational functions  ; 171                                             ;
+;     Dedicated logic registers      ; 14                                              ;
+; Total registers                    ; 14                                              ;
+; Total pins                         ; 49                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 10,240                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                           ;
++----------------------------------------------------------------------------+--------------------+-----------------------+
+; Option                                                                     ; Setting            ; Default Value         ;
++----------------------------------------------------------------------------+--------------------+-----------------------+
+; Top-level entity name                                                      ; ProcessorMIPS      ; VeriogSingleCycleMIPS ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX         ;
+; Use smart compilation                                                      ; Off                ; Off                   ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                    ;
+; Enable compact report table                                                ; Off                ; Off                   ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto                  ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                   ;
+; Preserve fewer node names                                                  ; On                 ; On                    ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                   ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001          ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993             ;
+; State Machine Processing                                                   ; Auto               ; Auto                  ;
+; Safe State Machine                                                         ; Off                ; Off                   ;
+; Extract Verilog State Machines                                             ; On                 ; On                    ;
+; Extract VHDL State Machines                                                ; On                 ; On                    ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                   ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000                  ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                   ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                    ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                    ;
+; Parallel Synthesis                                                         ; On                 ; On                    ;
+; DSP Block Balancing                                                        ; Auto               ; Auto                  ;
+; NOT Gate Push-Back                                                         ; On                 ; On                    ;
+; Power-Up Don't Care                                                        ; On                 ; On                    ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                   ;
+; Remove Duplicate Registers                                                 ; On                 ; On                    ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                   ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                   ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                   ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                   ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                   ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                    ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                   ;
+; Optimization Technique                                                     ; Balanced           ; Balanced              ;
+; Carry Chain Length                                                         ; 70                 ; 70                    ;
+; Auto Carry Chains                                                          ; On                 ; On                    ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                    ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                   ;
+; Auto ROM Replacement                                                       ; On                 ; On                    ;
+; Auto RAM Replacement                                                       ; On                 ; On                    ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                    ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto                  ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto                  ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                    ;
+; Strict RAM Replacement                                                     ; Off                ; Off                   ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                    ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                   ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                    ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                   ;
+; Auto Resource Sharing                                                      ; Off                ; Off                   ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                   ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                   ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                   ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                    ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                   ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                    ;
+; Report Parameter Settings                                                  ; On                 ; On                    ;
+; Report Source Assignments                                                  ; On                 ; On                    ;
+; Report Connectivity Checks                                                 ; On                 ; On                    ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                   ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                     ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation    ;
+; HDL message level                                                          ; Level2             ; Level2                ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                   ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000                  ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000                  ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                   ;
+; Clock MUX Protection                                                       ; On                 ; On                    ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                   ;
+; Block Design Naming                                                        ; Auto               ; Auto                  ;
+; SDC constraint protection                                                  ; Off                ; Off                   ;
+; Synthesis Effort                                                           ; Auto               ; Auto                  ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                    ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                   ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium                ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto                  ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                    ;
+; Synthesis Seed                                                             ; 1                  ; 1                     ;
++----------------------------------------------------------------------------+--------------------+-----------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 16     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                               ;
++----------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                 ; Library ;
++----------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------------------+---------+
+; registerNbit.sv                  ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/registerNbit.sv        ;         ;
+; and1toN.sv                       ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/and1toN.sv             ;         ;
+; enARdFF_1.sv                     ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/enARdFF_1.sv           ;         ;
+; and1to1.sv                       ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/and1to1.sv             ;         ;
+; fullAdder1bit.sv                 ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/fullAdder1bit.sv       ;         ;
+; fullAdderNbit.sv                 ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/fullAdderNbit.sv       ;         ;
+; mux2to1Nbit.sv                   ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/mux2to1Nbit.sv         ;         ;
+; mux8to1Nbit.sv                   ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/mux8to1Nbit.sv         ;         ;
+; decoder3to8.sv                   ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/decoder3to8.sv         ;         ;
+; registerFile.sv                  ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/registerFile.sv        ;         ;
+; PCAdd4.sv                        ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/PCAdd4.sv              ;         ;
+; orNtoN.sv                        ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/orNtoN.sv              ;         ;
+; ROM1Port.v                       ; yes             ; User Wizard-Generated File             ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/ROM1Port.v             ;         ;
+; RAM1Port.v                       ; yes             ; User Wizard-Generated File             ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/RAM1Port.v             ;         ;
+; complementerNbit.sv              ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/complementerNbit.sv    ;         ;
+; ArthmeticUnit.sv                 ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/ArthmeticUnit.sv       ;         ;
+; andNtoN.sv                       ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/andNtoN.sv             ;         ;
+; LogicUnit.sv                     ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/LogicUnit.sv           ;         ;
+; SetLessThanUnit.sv               ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/SetLessThanUnit.sv     ;         ;
+; ALU.sv                           ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/ALU.sv                 ;         ;
+; extend32LeftShift2.sv            ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/extend32LeftShift2.sv  ;         ;
+; JumpShiftCombPC.sv               ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/JumpShiftCombPC.sv     ;         ;
+; ProcessorControl.sv              ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/ProcessorControl.sv    ;         ;
+; ALUControl.sv                    ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/ALUControl.sv          ;         ;
+; combineData.sv                   ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/combineData.sv         ;         ;
+; ProcessorMIPS.sv                 ; yes             ; User SystemVerilog HDL File            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/ProcessorMIPS.sv       ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf                             ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc                      ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc                                ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc                             ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc                             ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc                              ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc                                 ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc                                 ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc                               ;         ;
+; db/altsyncram_4ia1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/db/altsyncram_4ia1.tdf ;         ;
+; instruction.mif                  ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/instruction.mif        ;         ;
+; db/altsyncram_81h1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/db/altsyncram_81h1.tdf ;         ;
+; memory.mif                       ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/memory.mif             ;         ;
++----------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimated Total logic elements              ; 171          ;
+;                                             ;              ;
+; Total combinational functions               ; 171          ;
+; Logic element usage by number of LUT inputs ;              ;
+;     -- 4 input functions                    ; 117          ;
+;     -- 3 input functions                    ; 49           ;
+;     -- <=2 input functions                  ; 5            ;
+;                                             ;              ;
+; Logic elements by mode                      ;              ;
+;     -- normal mode                          ; 164          ;
+;     -- arithmetic mode                      ; 7            ;
+;                                             ;              ;
+; Total registers                             ; 14           ;
+;     -- Dedicated logic registers            ; 14           ;
+;     -- I/O registers                        ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 49           ;
+; Total memory bits                           ; 10240        ;
+; Embedded Multiplier 9-bit elements          ; 0            ;
+; Maximum fan-out node                        ; GClock~input ;
+; Maximum fan-out                             ; 54           ;
+; Total fan-out                               ; 1120         ;
+; Average fan-out                             ; 3.47         ;
++---------------------------------------------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                      ;
++--------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                       ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                        ; Library Name ;
++--------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------+--------------+
+; |ProcessorMIPS                                   ; 171 (1)           ; 14 (0)       ; 10240       ; 0            ; 0       ; 0         ; 49   ; 0            ; |ProcessorMIPS                                                                                             ; work         ;
+;    |ALU:ALUUnit|                                 ; 30 (4)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ALU:ALUUnit                                                                                 ; work         ;
+;       |LogicUnit:LU_inst|                        ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ALU:ALUUnit|LogicUnit:LU_inst                                                               ; work         ;
+;          |mux2to1Nbit:muxUnit|                   ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ALU:ALUUnit|LogicUnit:LU_inst|mux2to1Nbit:muxUnit                                           ; work         ;
+;       |SetLessThanUnit:SLT_inst|                 ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ALU:ALUUnit|SetLessThanUnit:SLT_inst                                                        ; work         ;
+;       |mux2to1Nbit:muxFinal|                     ; 10 (2)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ALU:ALUUnit|mux2to1Nbit:muxFinal                                                            ; work         ;
+;          |and1toN:and1_inst|                     ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ALU:ALUUnit|mux2to1Nbit:muxFinal|and1toN:and1_inst                                          ; work         ;
+;             |and1to1:andInst[1].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ALU:ALUUnit|mux2to1Nbit:muxFinal|and1toN:and1_inst|and1to1:andInst[1].and_inst              ; work         ;
+;             |and1to1:andInst[2].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ALU:ALUUnit|mux2to1Nbit:muxFinal|and1toN:and1_inst|and1to1:andInst[2].and_inst              ; work         ;
+;             |and1to1:andInst[3].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ALU:ALUUnit|mux2to1Nbit:muxFinal|and1toN:and1_inst|and1to1:andInst[3].and_inst              ; work         ;
+;             |and1to1:andInst[4].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ALU:ALUUnit|mux2to1Nbit:muxFinal|and1toN:and1_inst|and1to1:andInst[4].and_inst              ; work         ;
+;             |and1to1:andInst[5].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ALU:ALUUnit|mux2to1Nbit:muxFinal|and1toN:and1_inst|and1to1:andInst[5].and_inst              ; work         ;
+;             |and1to1:andInst[6].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ALU:ALUUnit|mux2to1Nbit:muxFinal|and1toN:and1_inst|and1to1:andInst[6].and_inst              ; work         ;
+;             |and1to1:andInst[7].and_inst|        ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ALU:ALUUnit|mux2to1Nbit:muxFinal|and1toN:and1_inst|and1to1:andInst[7].and_inst              ; work         ;
+;    |ALUControl:ALUCntrlUnit|                     ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ALUControl:ALUCntrlUnit                                                                     ; work         ;
+;    |PCAdd4:Add4Unit|                             ; 3 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|PCAdd4:Add4Unit                                                                             ; work         ;
+;       |fullAdderNbit:adder_inst|                 ; 3 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|PCAdd4:Add4Unit|fullAdderNbit:adder_inst                                                    ; work         ;
+;          |fullAdder1bit:adderInst[3].adder_inst| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|PCAdd4:Add4Unit|fullAdderNbit:adder_inst|fullAdder1bit:adderInst[3].adder_inst              ; work         ;
+;          |fullAdder1bit:adderInst[4].adder_inst| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|PCAdd4:Add4Unit|fullAdderNbit:adder_inst|fullAdder1bit:adderInst[4].adder_inst              ; work         ;
+;          |fullAdder1bit:adderInst[5].adder_inst| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|PCAdd4:Add4Unit|fullAdderNbit:adder_inst|fullAdder1bit:adderInst[5].adder_inst              ; work         ;
+;    |ProcessorControl:ProcCntrlUnit|              ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ProcessorControl:ProcCntrlUnit                                                              ; work         ;
+;    |RAM1Port:RAMUnit|                            ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|RAM1Port:RAMUnit                                                                            ; work         ;
+;       |altsyncram:altsyncram_component|          ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|RAM1Port:RAMUnit|altsyncram:altsyncram_component                                            ; work         ;
+;          |altsyncram_81h1:auto_generated|        ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|RAM1Port:RAMUnit|altsyncram:altsyncram_component|altsyncram_81h1:auto_generated             ; work         ;
+;    |ROM1Port:ROMUnit|                            ; 0 (0)             ; 0 (0)        ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ROM1Port:ROMUnit                                                                            ; work         ;
+;       |altsyncram:altsyncram_component|          ; 0 (0)             ; 0 (0)        ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ROM1Port:ROMUnit|altsyncram:altsyncram_component                                            ; work         ;
+;          |altsyncram_4ia1:auto_generated|        ; 0 (0)             ; 0 (0)        ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|ROM1Port:ROMUnit|altsyncram:altsyncram_component|altsyncram_4ia1:auto_generated             ; work         ;
+;    |fullAdderNbit:BranchCalc|                    ; 3 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|fullAdderNbit:BranchCalc                                                                    ; work         ;
+;       |fullAdder1bit:adderInst[3].adder_inst|    ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|fullAdderNbit:BranchCalc|fullAdder1bit:adderInst[3].adder_inst                              ; work         ;
+;       |fullAdder1bit:adderInst[4].adder_inst|    ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|fullAdderNbit:BranchCalc|fullAdder1bit:adderInst[4].adder_inst                              ; work         ;
+;       |fullAdder1bit:adderInst[5].adder_inst|    ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|fullAdderNbit:BranchCalc|fullAdder1bit:adderInst[5].adder_inst                              ; work         ;
+;    |mux2to1Nbit:JumpMux|                         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:JumpMux                                                                         ; work         ;
+;    |mux2to1Nbit:muxALUB|                         ; 26 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB                                                                         ; work         ;
+;       |and1toN:and1_inst|                        ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and1_inst                                                       ; work         ;
+;          |and1to1:andInst[0].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and1_inst|and1to1:andInst[0].and_inst                           ; work         ;
+;          |and1to1:andInst[1].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and1_inst|and1to1:andInst[1].and_inst                           ; work         ;
+;          |and1to1:andInst[2].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and1_inst|and1to1:andInst[2].and_inst                           ; work         ;
+;          |and1to1:andInst[3].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and1_inst|and1to1:andInst[3].and_inst                           ; work         ;
+;          |and1to1:andInst[4].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and1_inst|and1to1:andInst[4].and_inst                           ; work         ;
+;          |and1to1:andInst[5].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and1_inst|and1to1:andInst[5].and_inst                           ; work         ;
+;          |and1to1:andInst[6].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and1_inst|and1to1:andInst[6].and_inst                           ; work         ;
+;          |and1to1:andInst[7].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and1_inst|and1to1:andInst[7].and_inst                           ; work         ;
+;       |and1toN:and2_inst|                        ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and2_inst                                                       ; work         ;
+;          |and1to1:andInst[0].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and2_inst|and1to1:andInst[0].and_inst                           ; work         ;
+;          |and1to1:andInst[1].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and2_inst|and1to1:andInst[1].and_inst                           ; work         ;
+;          |and1to1:andInst[2].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and2_inst|and1to1:andInst[2].and_inst                           ; work         ;
+;          |and1to1:andInst[3].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and2_inst|and1to1:andInst[3].and_inst                           ; work         ;
+;          |and1to1:andInst[4].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and2_inst|and1to1:andInst[4].and_inst                           ; work         ;
+;          |and1to1:andInst[5].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and2_inst|and1to1:andInst[5].and_inst                           ; work         ;
+;          |and1to1:andInst[6].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and2_inst|and1to1:andInst[6].and_inst                           ; work         ;
+;          |and1to1:andInst[7].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxALUB|and1toN:and2_inst|and1to1:andInst[7].and_inst                           ; work         ;
+;    |mux2to1Nbit:muxMem|                          ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux2to1Nbit:muxMem                                                                          ; work         ;
+;    |mux8to1Nbit:OutputMux|                       ; 39 (36)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux8to1Nbit:OutputMux                                                                       ; work         ;
+;       |and1toN:and1_inst|                        ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux8to1Nbit:OutputMux|and1toN:and1_inst                                                     ; work         ;
+;          |and1to1:andInst[2].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux8to1Nbit:OutputMux|and1toN:and1_inst|and1to1:andInst[2].and_inst                         ; work         ;
+;          |and1to1:andInst[7].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux8to1Nbit:OutputMux|and1toN:and1_inst|and1to1:andInst[7].and_inst                         ; work         ;
+;       |and1toN:and2_inst|                        ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux8to1Nbit:OutputMux|and1toN:and2_inst                                                     ; work         ;
+;          |and1to1:andInst[6].and_inst|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|mux8to1Nbit:OutputMux|and1toN:and2_inst|and1to1:andInst[6].and_inst                         ; work         ;
+;    |registerFile:RegUnit|                        ; 16 (0)            ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit                                                                        ; work         ;
+;       |mux8to1Nbit:readData1Mux|                 ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData1Mux                                               ; work         ;
+;          |and1toN:and1_inst|                     ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and1_inst                             ; work         ;
+;             |and1to1:andInst[0].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and1_inst|and1to1:andInst[0].and_inst ; work         ;
+;             |and1to1:andInst[1].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and1_inst|and1to1:andInst[1].and_inst ; work         ;
+;             |and1to1:andInst[2].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and1_inst|and1to1:andInst[2].and_inst ; work         ;
+;             |and1to1:andInst[3].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and1_inst|and1to1:andInst[3].and_inst ; work         ;
+;             |and1to1:andInst[4].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and1_inst|and1to1:andInst[4].and_inst ; work         ;
+;             |and1to1:andInst[5].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and1_inst|and1to1:andInst[5].and_inst ; work         ;
+;             |and1to1:andInst[6].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and1_inst|and1to1:andInst[6].and_inst ; work         ;
+;             |and1to1:andInst[7].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and1_inst|and1to1:andInst[7].and_inst ; work         ;
+;       |mux8to1Nbit:readData2Mux|                 ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData2Mux                                               ; work         ;
+;          |and1toN:and1_inst|                     ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and1_inst                             ; work         ;
+;             |and1to1:andInst[0].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and1_inst|and1to1:andInst[0].and_inst ; work         ;
+;             |and1to1:andInst[1].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and1_inst|and1to1:andInst[1].and_inst ; work         ;
+;             |and1to1:andInst[2].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and1_inst|and1to1:andInst[2].and_inst ; work         ;
+;             |and1to1:andInst[3].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and1_inst|and1to1:andInst[3].and_inst ; work         ;
+;             |and1to1:andInst[4].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and1_inst|and1to1:andInst[4].and_inst ; work         ;
+;             |and1to1:andInst[5].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and1_inst|and1to1:andInst[5].and_inst ; work         ;
+;             |and1to1:andInst[6].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and1_inst|and1to1:andInst[6].and_inst ; work         ;
+;             |and1to1:andInst[7].and_inst|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and1_inst|and1to1:andInst[7].and_inst ; work         ;
+;       |registerNbit:regFile[0].reg_inst|         ; 0 (0)             ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|registerNbit:regFile[0].reg_inst                                       ; work         ;
+;          |enARdFF_1:inst_reg[0].reg_inst|        ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|registerNbit:regFile[0].reg_inst|enARdFF_1:inst_reg[0].reg_inst        ; work         ;
+;          |enARdFF_1:inst_reg[1].reg_inst|        ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|registerNbit:regFile[0].reg_inst|enARdFF_1:inst_reg[1].reg_inst        ; work         ;
+;          |enARdFF_1:inst_reg[2].reg_inst|        ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|registerNbit:regFile[0].reg_inst|enARdFF_1:inst_reg[2].reg_inst        ; work         ;
+;          |enARdFF_1:inst_reg[3].reg_inst|        ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|registerNbit:regFile[0].reg_inst|enARdFF_1:inst_reg[3].reg_inst        ; work         ;
+;          |enARdFF_1:inst_reg[4].reg_inst|        ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|registerNbit:regFile[0].reg_inst|enARdFF_1:inst_reg[4].reg_inst        ; work         ;
+;          |enARdFF_1:inst_reg[5].reg_inst|        ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|registerNbit:regFile[0].reg_inst|enARdFF_1:inst_reg[5].reg_inst        ; work         ;
+;          |enARdFF_1:inst_reg[6].reg_inst|        ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|registerNbit:regFile[0].reg_inst|enARdFF_1:inst_reg[6].reg_inst        ; work         ;
+;          |enARdFF_1:inst_reg[7].reg_inst|        ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerFile:RegUnit|registerNbit:regFile[0].reg_inst|enARdFF_1:inst_reg[7].reg_inst        ; work         ;
+;    |registerNbit:PCReg|                          ; 24 (0)            ; 6 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerNbit:PCReg                                                                          ; work         ;
+;       |enARdFF_1:inst_reg[2].reg_inst|           ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerNbit:PCReg|enARdFF_1:inst_reg[2].reg_inst                                           ; work         ;
+;       |enARdFF_1:inst_reg[3].reg_inst|           ; 4 (4)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerNbit:PCReg|enARdFF_1:inst_reg[3].reg_inst                                           ; work         ;
+;       |enARdFF_1:inst_reg[4].reg_inst|           ; 5 (5)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerNbit:PCReg|enARdFF_1:inst_reg[4].reg_inst                                           ; work         ;
+;       |enARdFF_1:inst_reg[5].reg_inst|           ; 6 (6)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerNbit:PCReg|enARdFF_1:inst_reg[5].reg_inst                                           ; work         ;
+;       |enARdFF_1:inst_reg[6].reg_inst|           ; 4 (4)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerNbit:PCReg|enARdFF_1:inst_reg[6].reg_inst                                           ; work         ;
+;       |enARdFF_1:inst_reg[7].reg_inst|           ; 5 (5)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ProcessorMIPS|registerNbit:PCReg|enARdFF_1:inst_reg[7].reg_inst                                           ; work         ;
++--------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                     ;
++--------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------+
+; Name                                                                                       ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF             ;
++--------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------+
+; RAM1Port:RAMUnit|altsyncram:altsyncram_component|altsyncram_81h1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; memory.mif      ;
+; ROM1Port:ROMUnit|altsyncram:altsyncram_component|altsyncram_4ia1:auto_generated|ALTSYNCRAM ; AUTO ; ROM         ; 256          ; 32           ; --           ; --           ; 8192 ; instruction.mif ;
++--------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                              ;
++--------+--------------+---------+--------------+--------------+---------------------------------+----------------------------------------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                 ; IP Include File                                                                  ;
++--------+--------------+---------+--------------+--------------+---------------------------------+----------------------------------------------------------------------------------+
+; Altera ; RAM: 1-PORT  ; 13.0    ; N/A          ; N/A          ; |ProcessorMIPS|RAM1Port:RAMUnit ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/RAM1Port.v ;
+; Altera ; ROM: 1-PORT  ; 13.0    ; N/A          ; N/A          ; |ProcessorMIPS|ROM1Port:ROMUnit ; C:/Users/lehar/Documents/CEG3156 Lab/Lab2Sub/Lab2Processor8BitVerilog/ROM1Port.v ;
++--------+--------------+---------+--------------+--------------+---------------------------------+----------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                       ;
++----------------------------------------------------------------------------------------+-----------------------------------------------------------------+
+; Register name                                                                          ; Reason for Removal                                              ;
++----------------------------------------------------------------------------------------+-----------------------------------------------------------------+
+; registerFile:RegUnit|registerNbit:regFile[7].reg_inst|enARdFF_1:inst_reg[7].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[7].reg_inst|enARdFF_1:inst_reg[6].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[7].reg_inst|enARdFF_1:inst_reg[5].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[7].reg_inst|enARdFF_1:inst_reg[4].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[7].reg_inst|enARdFF_1:inst_reg[3].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[7].reg_inst|enARdFF_1:inst_reg[2].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[7].reg_inst|enARdFF_1:inst_reg[1].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[7].reg_inst|enARdFF_1:inst_reg[0].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[5].reg_inst|enARdFF_1:inst_reg[7].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[5].reg_inst|enARdFF_1:inst_reg[6].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[5].reg_inst|enARdFF_1:inst_reg[5].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[5].reg_inst|enARdFF_1:inst_reg[4].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[5].reg_inst|enARdFF_1:inst_reg[3].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[5].reg_inst|enARdFF_1:inst_reg[2].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[5].reg_inst|enARdFF_1:inst_reg[1].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[5].reg_inst|enARdFF_1:inst_reg[0].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[4].reg_inst|enARdFF_1:inst_reg[7].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[4].reg_inst|enARdFF_1:inst_reg[6].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[4].reg_inst|enARdFF_1:inst_reg[5].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[4].reg_inst|enARdFF_1:inst_reg[4].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[4].reg_inst|enARdFF_1:inst_reg[3].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[4].reg_inst|enARdFF_1:inst_reg[2].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[4].reg_inst|enARdFF_1:inst_reg[1].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[4].reg_inst|enARdFF_1:inst_reg[0].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[3].reg_inst|enARdFF_1:inst_reg[7].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[3].reg_inst|enARdFF_1:inst_reg[6].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[3].reg_inst|enARdFF_1:inst_reg[5].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[3].reg_inst|enARdFF_1:inst_reg[4].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[3].reg_inst|enARdFF_1:inst_reg[3].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[3].reg_inst|enARdFF_1:inst_reg[2].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[3].reg_inst|enARdFF_1:inst_reg[1].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[3].reg_inst|enARdFF_1:inst_reg[0].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[2].reg_inst|enARdFF_1:inst_reg[7].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[2].reg_inst|enARdFF_1:inst_reg[6].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[2].reg_inst|enARdFF_1:inst_reg[5].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[2].reg_inst|enARdFF_1:inst_reg[4].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[2].reg_inst|enARdFF_1:inst_reg[3].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[2].reg_inst|enARdFF_1:inst_reg[2].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[2].reg_inst|enARdFF_1:inst_reg[1].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[2].reg_inst|enARdFF_1:inst_reg[0].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[1].reg_inst|enARdFF_1:inst_reg[7].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[1].reg_inst|enARdFF_1:inst_reg[6].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[1].reg_inst|enARdFF_1:inst_reg[5].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[1].reg_inst|enARdFF_1:inst_reg[4].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[1].reg_inst|enARdFF_1:inst_reg[3].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[1].reg_inst|enARdFF_1:inst_reg[2].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[1].reg_inst|enARdFF_1:inst_reg[1].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[1].reg_inst|enARdFF_1:inst_reg[0].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[6].reg_inst|enARdFF_1:inst_reg[7].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[6].reg_inst|enARdFF_1:inst_reg[6].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[6].reg_inst|enARdFF_1:inst_reg[5].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[6].reg_inst|enARdFF_1:inst_reg[4].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[6].reg_inst|enARdFF_1:inst_reg[3].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[6].reg_inst|enARdFF_1:inst_reg[2].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[6].reg_inst|enARdFF_1:inst_reg[1].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerFile:RegUnit|registerNbit:regFile[6].reg_inst|enARdFF_1:inst_reg[0].reg_inst|q ; Stuck at GND due to stuck port clock_enable                     ;
+; registerNbit:PCReg|enARdFF_1:inst_reg[0].reg_inst|q                                    ; Merged with registerNbit:PCReg|enARdFF_1:inst_reg[1].reg_inst|q ;
+; registerNbit:PCReg|enARdFF_1:inst_reg[1].reg_inst|q                                    ; Stuck at GND due to stuck port data_in                          ;
+; Total Number of Removed Registers = 58                                                 ;                                                                 ;
++----------------------------------------------------------------------------------------+-----------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 14    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 5     ;
+; Number of registers using Asynchronous Clear ; 14    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 8     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |ProcessorMIPS|registerNbit:PCReg|enARdFF_1:inst_reg[2].reg_inst|q ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |ProcessorMIPS|ALUControl:ALUCntrlUnit|Mux0                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Source assignments for ROM1Port:ROMUnit|altsyncram:altsyncram_component|altsyncram_4ia1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                       ;
++---------------------------------+--------------------+------+------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                        ;
++---------------------------------+--------------------+------+------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Source assignments for RAM1Port:RAMUnit|altsyncram:altsyncram_component|altsyncram_81h1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                       ;
++---------------------------------+--------------------+------+------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                        ;
++---------------------------------+--------------------+------+------------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerNbit:PCReg ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; N              ; 8     ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ROM1Port:ROMUnit|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-----------------------------------+
+; Parameter Name                     ; Value                ; Type                              ;
++------------------------------------+----------------------+-----------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                           ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                           ;
+; WIDTH_A                            ; 32                   ; Signed Integer                    ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                    ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                    ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                           ;
+; WIDTH_B                            ; 1                    ; Untyped                           ;
+; WIDTHAD_B                          ; 1                    ; Untyped                           ;
+; NUMWORDS_B                         ; 1                    ; Untyped                           ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                           ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                           ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                    ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                           ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                           ;
+; INIT_FILE                          ; instruction.mif      ; Untyped                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                           ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                           ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                           ;
+; CBXI_PARAMETER                     ; altsyncram_4ia1      ; Untyped                           ;
++------------------------------------+----------------------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PCAdd4:Add4Unit|fullAdderNbit:adder_inst ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1Nbit:muxWriteReg ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; N              ; 8     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1Nbit:muxWriteReg|and1toN:and1_inst ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1Nbit:muxWriteReg|and1toN:and2_inst ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|registerNbit:regFile[0].reg_inst ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|registerNbit:regFile[1].reg_inst ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|registerNbit:regFile[2].reg_inst ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|registerNbit:regFile[3].reg_inst ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|registerNbit:regFile[4].reg_inst ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|registerNbit:regFile[5].reg_inst ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|registerNbit:regFile[6].reg_inst ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|registerNbit:regFile[7].reg_inst ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and1_inst ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and2_inst ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and3_inst ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and4_inst ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and5_inst ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and6_inst ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and7_inst ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData1Mux|and1toN:and8_inst ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and1_inst ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and2_inst ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and3_inst ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and4_inst ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and5_inst ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and6_inst ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and7_inst ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registerFile:RegUnit|mux8to1Nbit:readData2Mux|and1toN:and8_inst ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1Nbit:muxALUB ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; N              ; 8     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1Nbit:muxALUB|and1toN:and1_inst ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1Nbit:muxALUB|and1toN:and2_inst ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALUUnit|LogicUnit:LU_inst|andNtoN:andUnit ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALUUnit|LogicUnit:LU_inst|orNtoN:orUnit ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALUUnit|LogicUnit:LU_inst|mux2to1Nbit:muxUnit ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                        ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALUUnit|LogicUnit:LU_inst|mux2to1Nbit:muxUnit|and1toN:and1_inst ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALUUnit|LogicUnit:LU_inst|mux2to1Nbit:muxUnit|and1toN:and2_inst ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALUUnit|ArthmeticUnit:AU_inst|complementerNbit:compAU ;
++----------------+-------+-------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                          ;
++----------------+-------+-------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                ;
++----------------+-------+-------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALUUnit|ArthmeticUnit:AU_inst|complementerNbit:compAU|fullAdderNbit:adder_inst ;
++----------------+-------+--------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                   ;
++----------------+-------+--------------------------------------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                                                         ;
++----------------+-------+--------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALUUnit|ArthmeticUnit:AU_inst|fullAdderNbit:adderAU ;
++----------------+-------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                        ;
++----------------+-------+-----------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                              ;
++----------------+-------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALUUnit|mux2to1Nbit:muxAULU ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; N              ; 8     ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALUUnit|mux2to1Nbit:muxAULU|and1toN:and1_inst ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                        ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALUUnit|mux2to1Nbit:muxAULU|and1toN:and2_inst ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                        ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALUUnit|mux2to1Nbit:muxFinal ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALUUnit|mux2to1Nbit:muxFinal|and1toN:and1_inst ;
++----------------+-------+------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                   ;
++----------------+-------+------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                         ;
++----------------+-------+------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALUUnit|mux2to1Nbit:muxFinal|and1toN:and2_inst ;
++----------------+-------+------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                   ;
++----------------+-------+------------------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                         ;
++----------------+-------+------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RAM1Port:RAMUnit|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-----------------------------------+
+; Parameter Name                     ; Value                ; Type                              ;
++------------------------------------+----------------------+-----------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                           ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                           ;
+; WIDTH_A                            ; 8                    ; Signed Integer                    ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                    ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                    ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                           ;
+; WIDTH_B                            ; 1                    ; Untyped                           ;
+; WIDTHAD_B                          ; 1                    ; Untyped                           ;
+; NUMWORDS_B                         ; 1                    ; Untyped                           ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                           ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                           ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                    ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                           ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA             ; Untyped                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                           ;
+; INIT_FILE                          ; memory.mif           ; Untyped                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                           ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                           ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                           ;
+; CBXI_PARAMETER                     ; altsyncram_81h1      ; Untyped                           ;
++------------------------------------+----------------------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1Nbit:muxMem ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; N              ; 8     ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1Nbit:muxMem|and1toN:and1_inst ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1Nbit:muxMem|and1toN:and2_inst ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fullAdderNbit:BranchCalc ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; N              ; 32    ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1Nbit:BranchMulti ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; N              ; 32    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1Nbit:BranchMulti|and1toN:and1_inst ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1Nbit:BranchMulti|and1toN:and2_inst ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1Nbit:JumpMux ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; N              ; 32    ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1Nbit:JumpMux|and1toN:and1_inst ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2to1Nbit:JumpMux|and1toN:and2_inst ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; N              ; 8     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux|and1toN:and1_inst ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux|and1toN:and2_inst ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux|and1toN:and3_inst ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux|and1toN:and4_inst ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux|and1toN:and5_inst ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux|and1toN:and6_inst ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux|and1toN:and7_inst ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux8to1Nbit:OutputMux|and1toN:and8_inst ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                             ;
++-------------------------------------------+--------------------------------------------------+
+; Name                                      ; Value                                            ;
++-------------------------------------------+--------------------------------------------------+
+; Number of entity instances                ; 2                                                ;
+; Entity Instance                           ; ROM1Port:ROMUnit|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                              ;
+;     -- WIDTH_A                            ; 32                                               ;
+;     -- NUMWORDS_A                         ; 256                                              ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                     ;
+;     -- WIDTH_B                            ; 1                                                ;
+;     -- NUMWORDS_B                         ; 1                                                ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                           ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                     ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                             ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                        ;
+; Entity Instance                           ; RAM1Port:RAMUnit|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                      ;
+;     -- WIDTH_A                            ; 8                                                ;
+;     -- NUMWORDS_A                         ; 256                                              ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                     ;
+;     -- WIDTH_B                            ; 1                                                ;
+;     -- NUMWORDS_B                         ; 1                                                ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                           ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                     ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                             ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                        ;
++-------------------------------------------+--------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fullAdderNbit:BranchCalc"                                                                                                                                                             ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                                            ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Cin     ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; Cin[-1] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; Cout    ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                                                           ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALUUnit|ArthmeticUnit:AU_inst|fullAdderNbit:adderAU"                                                             ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                              ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------------------+
+; Cin  ; Input  ; Info     ; Stuck at GND                                                                                                         ;
+; Cout ; Output ; Info     ; Explicitly unconnected                                                                                               ;
+; S    ; Output ; Warning  ; Output or bidir port (8 bits) is wider than the port expression (1 bits) it drives; bit(s) "S[7..1]" have no fanouts ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALUUnit|ArthmeticUnit:AU_inst|complementerNbit:compAU|fullAdderNbit:adder_inst" ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; B    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout ; Output ; Info     ; Explicitly unconnected                                                              ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALUUnit|ArthmeticUnit:AU_inst"                                                                                                                                    ;
++------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                                               ;
++------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; O    ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (8 bits) it drives.  The 7 most-significant bit(s) in the port expression will be connected to GND. ;
++------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "registerFile:RegUnit"                                                                                                                           ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                      ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; WriteReg ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mux2to1Nbit:muxWriteReg"                                                                                                                  ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                   ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; A    ; Input  ; Warning  ; Input port expression (5 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "A[7..5]" will be connected to GND. ;
+; B    ; Input  ; Warning  ; Input port expression (5 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "B[7..5]" will be connected to GND. ;
+; O    ; Output ; Warning  ; Output or bidir port (8 bits) is wider than the port expression (5 bits) it drives; bit(s) "O[7..5]" have no fanouts                      ;
+; O    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                       ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "PCAdd4:Add4Unit|fullAdderNbit:adder_inst"                                                                                                                                             ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                                            ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B[2]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; Cin     ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; Cin[-1] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; Cout    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ROM1Port:ROMUnit"                                                                                                                                                                    ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; address ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (8 bits) it drives.  The 24 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "registerNbit:PCReg"                                                                                                                                                                ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                                                            ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; d    ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (8 bits) it drives.  The 24 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; q    ; Output ; Warning  ; Output or bidir port (8 bits) is smaller than the port expression (32 bits) it drives.  The 24 most-significant bit(s) in the port expression will be connected to GND.            ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sat Jul 06 03:52:58 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VeriogSingleCycleMIPS -c VeriogSingleCycleMIPS
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file registernbit.sv
+    Info (12023): Found entity 1: registerNbit
+Info (12021): Found 1 design units, including 1 entities, in source file and1ton.sv
+    Info (12023): Found entity 1: and1toN
+Warning (10261): Verilog HDL Event Control warning at enARdFF_1.sv(9): Event Control contains a complex event expression
+Info (12021): Found 1 design units, including 1 entities, in source file enardff_1.sv
+    Info (12023): Found entity 1: enARdFF_1
+Info (12021): Found 1 design units, including 1 entities, in source file mux2to1.sv
+    Info (12023): Found entity 1: mux2to1
+Info (12021): Found 1 design units, including 1 entities, in source file and1to1.sv
+    Info (12023): Found entity 1: and1to1
+Info (12021): Found 1 design units, including 1 entities, in source file fulladder1bit.sv
+    Info (12023): Found entity 1: fullAdder1bit
+Info (12021): Found 1 design units, including 1 entities, in source file fulladdernbit.sv
+    Info (12023): Found entity 1: fullAdderNbit
+Info (12021): Found 1 design units, including 1 entities, in source file mux2to1nbit.sv
+    Info (12023): Found entity 1: mux2to1Nbit
+Info (12021): Found 1 design units, including 1 entities, in source file mux8to1nbit.sv
+    Info (12023): Found entity 1: mux8to1Nbit
+Info (12021): Found 1 design units, including 1 entities, in source file decoder3to8.sv
+    Info (12023): Found entity 1: decoder3to8
+Info (12021): Found 1 design units, including 1 entities, in source file decode5to32.sv
+    Info (12023): Found entity 1: decode5to32
+Info (12021): Found 1 design units, including 1 entities, in source file registerfile.sv
+    Info (12023): Found entity 1: registerFile
+Info (12021): Found 1 design units, including 1 entities, in source file pcadd4.sv
+    Info (12023): Found entity 1: PCAdd4
+Info (12021): Found 1 design units, including 1 entities, in source file ornton.sv
+    Info (12023): Found entity 1: orNtoN
+Info (12021): Found 1 design units, including 1 entities, in source file rom1port.v
+    Info (12023): Found entity 1: ROM1Port
+Info (12021): Found 1 design units, including 1 entities, in source file ram1port.v
+    Info (12023): Found entity 1: RAM1Port
+Info (12021): Found 1 design units, including 1 entities, in source file complementernbit.sv
+    Info (12023): Found entity 1: complementerNbit
+Info (12021): Found 1 design units, including 1 entities, in source file arthmeticunit.sv
+    Info (12023): Found entity 1: ArthmeticUnit
+Info (12021): Found 1 design units, including 1 entities, in source file andnton.sv
+    Info (12023): Found entity 1: andNtoN
+Info (12021): Found 1 design units, including 1 entities, in source file logicunit.sv
+    Info (12023): Found entity 1: LogicUnit
+Info (12021): Found 1 design units, including 1 entities, in source file setlessthanunit.sv
+    Info (12023): Found entity 1: SetLessThanUnit
+Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
+    Info (12023): Found entity 1: ALU
+Info (12021): Found 1 design units, including 1 entities, in source file extend32leftshift2.sv
+    Info (12023): Found entity 1: extend32LeftShift2
+Info (12021): Found 1 design units, including 1 entities, in source file jumpshiftcombpc.sv
+    Info (12023): Found entity 1: JumpShiftCombPC
+Info (12021): Found 1 design units, including 1 entities, in source file processorcontrol.sv
+    Info (12023): Found entity 1: ProcessorControl
+Info (12021): Found 1 design units, including 1 entities, in source file alucontrol.sv
+    Info (12023): Found entity 1: ALUControl
+Info (12021): Found 1 design units, including 1 entities, in source file combinedata.sv
+    Info (12023): Found entity 1: combineData
+Info (12021): Found 1 design units, including 1 entities, in source file processormips.sv
+    Info (12023): Found entity 1: ProcessorMIPS
+Info (12127): Elaborating entity "ProcessorMIPS" for the top level hierarchy
+Info (12128): Elaborating entity "registerNbit" for hierarchy "registerNbit:PCReg"
+Info (12128): Elaborating entity "enARdFF_1" for hierarchy "registerNbit:PCReg|enARdFF_1:inst_reg[0].reg_inst"
+Info (12128): Elaborating entity "ROM1Port" for hierarchy "ROM1Port:ROMUnit"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "ROM1Port:ROMUnit|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "ROM1Port:ROMUnit|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "ROM1Port:ROMUnit|altsyncram:altsyncram_component" with the following parameter:
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "instruction.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_4ia1.tdf
+    Info (12023): Found entity 1: altsyncram_4ia1
+Info (12128): Elaborating entity "altsyncram_4ia1" for hierarchy "ROM1Port:ROMUnit|altsyncram:altsyncram_component|altsyncram_4ia1:auto_generated"
+Info (12128): Elaborating entity "PCAdd4" for hierarchy "PCAdd4:Add4Unit"
+Info (12128): Elaborating entity "fullAdderNbit" for hierarchy "PCAdd4:Add4Unit|fullAdderNbit:adder_inst"
+Info (12128): Elaborating entity "fullAdder1bit" for hierarchy "PCAdd4:Add4Unit|fullAdderNbit:adder_inst|fullAdder1bit:adderInst[0].adder_inst"
+Info (12128): Elaborating entity "JumpShiftCombPC" for hierarchy "JumpShiftCombPC:JumpUnit"
+Info (12128): Elaborating entity "mux2to1Nbit" for hierarchy "mux2to1Nbit:muxWriteReg"
+Info (12128): Elaborating entity "and1toN" for hierarchy "mux2to1Nbit:muxWriteReg|and1toN:and1_inst"
+Info (12128): Elaborating entity "and1to1" for hierarchy "mux2to1Nbit:muxWriteReg|and1toN:and1_inst|and1to1:andInst[0].and_inst"
+Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:RegUnit"
+Info (12128): Elaborating entity "decoder3to8" for hierarchy "registerFile:RegUnit|decoder3to8:decodeWrite"
+Info (12128): Elaborating entity "mux8to1Nbit" for hierarchy "registerFile:RegUnit|mux8to1Nbit:readData1Mux"
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALUUnit"
+Info (12128): Elaborating entity "LogicUnit" for hierarchy "ALU:ALUUnit|LogicUnit:LU_inst"
+Info (12128): Elaborating entity "andNtoN" for hierarchy "ALU:ALUUnit|LogicUnit:LU_inst|andNtoN:andUnit"
+Info (12128): Elaborating entity "orNtoN" for hierarchy "ALU:ALUUnit|LogicUnit:LU_inst|orNtoN:orUnit"
+Info (12128): Elaborating entity "ArthmeticUnit" for hierarchy "ALU:ALUUnit|ArthmeticUnit:AU_inst"
+Info (12128): Elaborating entity "complementerNbit" for hierarchy "ALU:ALUUnit|ArthmeticUnit:AU_inst|complementerNbit:compAU"
+Warning (10036): Verilog HDL or VHDL warning at complementerNbit.sv(9): object "int_O" assigned a value but never read
+Info (12128): Elaborating entity "fullAdderNbit" for hierarchy "ALU:ALUUnit|ArthmeticUnit:AU_inst|complementerNbit:compAU|fullAdderNbit:adder_inst"
+Info (12128): Elaborating entity "SetLessThanUnit" for hierarchy "ALU:ALUUnit|SetLessThanUnit:SLT_inst"
+Info (12128): Elaborating entity "ALUControl" for hierarchy "ALUControl:ALUCntrlUnit"
+Info (12128): Elaborating entity "ProcessorControl" for hierarchy "ProcessorControl:ProcCntrlUnit"
+Info (12128): Elaborating entity "RAM1Port" for hierarchy "RAM1Port:RAMUnit"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "RAM1Port:RAMUnit|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "RAM1Port:RAMUnit|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "RAM1Port:RAMUnit|altsyncram:altsyncram_component" with the following parameter:
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "memory.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "OLD_DATA"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_81h1.tdf
+    Info (12023): Found entity 1: altsyncram_81h1
+Info (12128): Elaborating entity "altsyncram_81h1" for hierarchy "RAM1Port:RAMUnit|altsyncram:altsyncram_component|altsyncram_81h1:auto_generated"
+Info (12128): Elaborating entity "extend32LeftShift2" for hierarchy "extend32LeftShift2:extendAddrUnit"
+Info (12128): Elaborating entity "mux2to1Nbit" for hierarchy "mux2to1Nbit:BranchMulti"
+Info (12128): Elaborating entity "and1toN" for hierarchy "mux2to1Nbit:BranchMulti|and1toN:and1_inst"
+Info (12128): Elaborating entity "combineData" for hierarchy "combineData:outMix"
+Info (12128): Elaborating entity "mux8to1Nbit" for hierarchy "mux8to1Nbit:OutputMux"
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "ALU:ALUUnit|int_AU[7]" is missing source, defaulting to GND
+    Warning (12110): Net "ALU:ALUUnit|int_AU[6]" is missing source, defaulting to GND
+    Warning (12110): Net "ALU:ALUUnit|int_AU[5]" is missing source, defaulting to GND
+    Warning (12110): Net "ALU:ALUUnit|int_AU[4]" is missing source, defaulting to GND
+    Warning (12110): Net "ALU:ALUUnit|int_AU[3]" is missing source, defaulting to GND
+    Warning (12110): Net "ALU:ALUUnit|int_AU[2]" is missing source, defaulting to GND
+    Warning (12110): Net "ALU:ALUUnit|int_AU[1]" is missing source, defaulting to GND
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "PC[31]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[30]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[29]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[28]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[27]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[26]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[25]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[24]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[23]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[22]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[21]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[20]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[19]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[18]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[17]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[16]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[15]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[14]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[13]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[12]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[11]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[10]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[9]" is missing source, defaulting to GND
+    Warning (12110): Net "PC[8]" is missing source, defaulting to GND
+Warning (12241): 8 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 268 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 44 output pins
+    Info (21061): Implemented 179 logic cells
+    Info (21064): Implemented 40 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 37 warnings
+    Info: Peak virtual memory: 4603 megabytes
+    Info: Processing ended: Sat Jul 06 03:53:02 2024
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:02
+
+

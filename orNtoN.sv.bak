@@ -1,0 +1,11 @@
+module orNtoN #(
+	parameter int N = 8
+)(
+	input wire [N-1:0] A,B,
+	output wire [N-1:0] C
+	);
+
+	genvar i;
+	
+	for(i = 0;i < N;i++) begin
+		assign 

@@ -1,0 +1,6 @@
+module mux8to1Nbit #(
+	parameter int N = 8
+	)(
+	input wire [N-1:0] in1,in2,in3,in4,in5,in6,in7,in8,
+	input wire [2:0] sel,
+	output wire [N-1:0] Out

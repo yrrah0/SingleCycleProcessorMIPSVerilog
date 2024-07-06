@@ -1,0 +1,22 @@
+module register8bit(
+	input wire [7:0] d,
+	input wire resetBar,
+	input wire clk,
+	input wire en,
+	output wire[7:0] q
+	);
+
+	genvar i;
+	
+	generate for(i = 0;i < 7;i = i+1)begin :inst_reg
+		enARdFF_1 reg_inst (
+			.d(d[i]),
+			.resetBar(resetBar),
+			.clk(clk),
+			.en(en),
+			.q(q[i])
+		);
+		end
+		endgenerate
+		
+endmodule

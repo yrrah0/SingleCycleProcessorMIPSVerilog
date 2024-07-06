@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\lehar\Documents\CEG3156 Lab\Lab2Sub\Lab2Processor8BitVerilog\simulation\qsim
+vProcessorMIPS
+Z1 IgcFJ0knFKQIT84<fzYScQ3
+Z2 Vi[Tc@9;GP?6<0JoiS9I3Y3
+Z3 dC:\Users\lehar\Documents\CEG3156 Lab\Lab2Sub\Lab2Processor8BitVerilog\simulation\qsim
+Z4 w1720252328
+Z5 8VeriogSingleCycleMIPS.vo
+Z6 FVeriogSingleCycleMIPS.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 o-work work -O0
+Z9 n@processor@m@i@p@s
+!i10b 1
+Z10 !s100 a7caD^L^RNK4mk>AfMHKV1
+!s85 0
+Z11 !s108 1720252329.939000
+Z12 !s107 VeriogSingleCycleMIPS.vo|
+Z13 !s90 -work|work|VeriogSingleCycleMIPS.vo|
+!s101 -O0
+vProcessorMIPS_vlg_check_tst
+!i10b 1
+!s100 G=M=c>?O_XaaYSIi[2z[[2
+I?I_@_Y?0m5b^WFnS1RPDH2
+Veg_P0YVH?SzmV90M7:i?Y2
+R3
+Z14 w1720252327
+Z15 8VeriogSingleCycleMIPS.vt
+Z16 FVeriogSingleCycleMIPS.vt
+L0 61
+R7
+r1
+!s85 0
+31
+Z17 !s108 1720252330.015000
+Z18 !s107 VeriogSingleCycleMIPS.vt|
+Z19 !s90 -work|work|VeriogSingleCycleMIPS.vt|
+!s101 -O0
+R8
+n@processor@m@i@p@s_vlg_check_tst
+vProcessorMIPS_vlg_sample_tst
+!i10b 1
+!s100 km6CF=U>=EMKa=Ag]P5<g2
+IOnMD2c:2h_Rm5ObV@fU]l3
+VOGBOEVX`=XOaG=NPbIgh=1
+R3
+R14
+R15
+R16
+L0 29
+R7
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R8
+n@processor@m@i@p@s_vlg_sample_tst
+vProcessorMIPS_vlg_vec_tst
+!i10b 1
+!s100 R>Sme:a;@moXm5QY_<lPL3
+IA@i1fmX[W:mDX0?HjXnN93
+VeeJRa@Sm=d=2<[7RkSWa;2
+R3
+R14
+R15
+R16
+L0 973
+R7
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R8
+n@processor@m@i@p@s_vlg_vec_tst

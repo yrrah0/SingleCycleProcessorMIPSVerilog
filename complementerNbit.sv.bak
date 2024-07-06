@@ -1,0 +1,14 @@
+module complementerNbit #(
+	parameter int N = 8
+	)(
+	input wire [N-1:0] A,
+	input wire [N-1:0} B,
+	output wire [N-1:0] O
+	);
+	
+	genvar i;
+    for (i = 0; i < N; i++) begin
+        assign O[i] = A[i] ^ B;
+    end
+	 
+endmodule

@@ -1,0 +1,20 @@
+module and1to8(
+	input wire [7:0] in,
+	input wire andBit,
+	output wire [7:0] out
+	);
+
+	genvar i;
+	
+	generate for(i = 0; i < n, i++) begin : andInst
+		and1to1 and_inst (
+			.a(in[i]),
+			.b(andBit),
+			.o(out(i))
+			);
+		end
+	end generate
+	
+	//Output Drivers
+	
+	

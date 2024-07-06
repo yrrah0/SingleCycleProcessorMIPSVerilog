@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sat Jul 06 03:53:08 2024
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Revision Name : VeriogSingleCycleMIPS
+Top-level Entity Name : ProcessorMIPS
+Family : Cyclone IV E
+Device : EP4CE6E22C6
+Timing Models : Final
+Total logic elements : 176 / 6,272 ( 3 % )
+    Total combinational functions : 171 / 6,272 ( 3 % )
+    Dedicated logic registers : 14 / 6,272 ( < 1 % )
+Total registers : 14
+Total pins : 49 / 92 ( 53 % )
+Total virtual pins : 0
+Total memory bits : 10,240 / 276,480 ( 4 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

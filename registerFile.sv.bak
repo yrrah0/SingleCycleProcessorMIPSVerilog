@@ -1,0 +1,28 @@
+module registerFile(
+	input wire [2:0] ReadReg1,ReadReg2, WriteReg,
+	input wire clk,
+	input wire resetBar,
+	input wire RegWrite,
+	input wire [7:0] WriteData,
+	output wire [7:0] ReadData1,ReadData2
+	);
+	
+	genvar i;
+	
+	wire[7:0] int_writeReg;
+	wire[7:0] int_reg [7:0];
+	
+	decoder3to8 decodeWrite(
+		.en(RegWrite),
+		.in(WriteReg),
+		.out(int_writeReg)
+		);
+	
+	generate for(i = 0 ; i < 8 ; i++) begin : regFile
+	registerNbit #(8) reg_inst(
+		.d(WriteData),
+		.clk(clk),
+		.resetBar(resetBar),
+		.en(RegWrite and int_writeReg[i]),
+		.q(int_reg[i])
+		);
