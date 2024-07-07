@@ -5,6 +5,7 @@
 ## Overview
 
 This project is a learning exercise to design and simulate a simple single-cycle MIPS processor using SystemVerilog. It supports multiple different instructions: ADD, SUB, AND, OR, SLT, LW, SW, BEQ, BNE, and Jump.
+Coded in mostly structural modeling.
 
 ## Project Details
 
