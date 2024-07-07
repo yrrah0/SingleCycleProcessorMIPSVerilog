@@ -8,7 +8,7 @@ This project is a learning exercise to design and simulate a simple single-cycle
 
 ## Project Details
 
-- **Language**: SystemVerilog
+- **Development Lanuage**: SystemVerilog
 - **Simulation Platform**: Altera Cyclone IV DE2 board
 - **Development Tool**: Quartus II 13sp.01
 
